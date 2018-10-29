@@ -1,0 +1,204 @@
+.venue {
+  font-family: "SFUIDisplay-Medium", "Helvetica", sans-serif;
+  font-size: 25px;
+  color: #FC4250;
+}
+
+.section {
+  font-family: "SFUIDisplay-Semibold", "Helvetica", sans-serif;
+  font-size: 20px;
+  color: #373737;
+}
+
+.title {
+  font-family: "SFUIDisplay-Semibold", "Helvetica", sans-serif;
+  font-size: 17px;
+  color: #494949;
+  letter-spacing: 0.5px;
+}
+
+.bodyText {
+  font-family: "SFUIText-Normal", "Helvetica", sans-serif;
+  font-size: 13px;
+  color: #6f6f6f;
+}
+
+.price, .tags {
+  font-family: "SFUIDisplay-Bold", "Helvetica", sans-serif;
+  font-size: 13px;
+  color: #494949;
+}
+
+.tags {
+  font-family: "SFUIDisplay-Regular", "Helvetica", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.App {
+  padding-top: 65px;
+}
+
+header {
+  height: 65px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  margin-top: -65px;
+  background-color: white;
+  z-index: 1;
+}
+
+.placeholder {
+  width: 56px;
+}
+
+.menu {
+  width: 56px;
+  height: 45px;
+  padding-left: 6px;
+  background-color: #FC4250;
+  border-radius: 24px 0 0 24px;
+  color: white;
+  font-family: "SFUIDisplay-Heavy", "Helvetica", sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section {
+  padding: 15px;
+}
+
+.title {
+  padding: 21px 14px;
+}
+
+.bodyText {
+  padding: 0 14px;
+}
+
+.info {
+  padding: 21px 14px;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuItem {
+  display: grid;
+  height: 50vw;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1px 1px;
+  grid-template-areas: "leftBox rightBox";
+  background-color: #FAFAFA;
+}
+
+.leftBox {
+  grid-area: leftBox;
+  position: relative;
+}
+
+.rightBox {
+  grid-area: rightBox;
+  position: relative;
+}
+
+.cta {
+  height: 421px;
+  background-image: linear-gradient(to bottom, rgba(254, 119, 136, 0.16), rgba(255, 255, 255, 0.07));
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 22px 0px 22px;
+  text-align: center;
+}
+.cta .mryum {
+  width: 100px;
+  margin-bottom: 15px;
+}
+.cta h3 {
+  color: #FC4250;
+  margin: 10px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+.cta p {
+  color: #6f6f6f;
+  font-family: "SFUIText-Medium", "Helvetica", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 10px 0;
+}
+.cta .preRegister {
+  font-family: "SFUIText-Semibold", "Helvetica", sans-serif;
+  color: #494949;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+.cta input {
+  width: 335px;
+  height: 55px;
+  border-radius: 3px;
+  border: solid 2px #FC4250;
+  padding: 20px;
+  font-family: "SFUIDisplay", "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #FC4250;
+  transition: 0.2s ease all;
+}
+.cta input:focus {
+  outline: none;
+  border: solid 4px #FC4250;
+  padding: 18px;
+}
+.cta ::placeholder {
+  font-family: "SFUIDisplay", "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #FC4250;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 57px;
+  font-family: "SFUIText", "Helvetica", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: white;
+  background-color: #FC4250;
+}
+
+/*# sourceMappingURL=App.css.map */

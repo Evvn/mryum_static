@@ -1,0 +1,235 @@
+
+// sass variables
+$red: #FC4250;
+$sectionColor: #373737;
+$titleColor: #494949;
+$bodyColor: #6f6f6f;
+$cardColor: #FAFAFA;
+
+%displayFont {
+  font-family: 'SFUIDisplay-Medium', 'Helvetica', sans-serif;
+  font-size: 25px;
+  color: $red;
+}
+
+%sectionFont {
+  font-family: 'SFUIDisplay-Semibold', 'Helvetica', sans-serif;
+  font-size: 20px;
+  color: $sectionColor;
+}
+
+%titleFont {
+  font-family: 'SFUIDisplay-Semibold', 'Helvetica', sans-serif;
+  font-size: 17px;
+  color: $titleColor;
+  letter-spacing: 0.5px;
+}
+
+%bodyFont {
+  font-family: 'SFUIText-Normal', 'Helvetica', sans-serif;
+  font-size: 13px;
+  color: $bodyColor;
+}
+
+%priceFont {
+  font-family: 'SFUIDisplay-Bold', 'Helvetica', sans-serif;
+  font-size: 13px;
+  color: $titleColor;
+}
+
+%tags {
+  @extend %priceFont;
+  font-family: 'SFUIDisplay-Regular', 'Helvetica', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.App {
+  padding-top: 65px;
+}
+
+.venue {
+  @extend %displayFont;
+}
+
+header {
+  height: 65px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  margin-top: -65px;
+  background-color: white;
+  z-index: 1;
+}
+
+.placeholder {
+  width: 56px;
+}
+
+.menu {
+  width: 56px;
+  height: 45px;
+  padding-left: 6px;
+  background-color: $red;
+  border-radius: 24px 0 0 24px;
+  color: white;
+  font-family: 'SFUIDisplay-Heavy', 'Helvetica', sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section {
+  @extend %sectionFont;
+  padding: 15px;
+}
+
+.title {
+  @extend %titleFont;
+  padding: 21px 14px;
+}
+
+.bodyText {
+  @extend %bodyFont;
+  padding: 0 14px;
+}
+
+.price {
+  @extend %priceFont;
+}
+
+.tags {
+  @extend %tags;
+}
+
+.info {
+  padding: 21px 14px;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuItem {
+  display: grid;
+  height: 50vw;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1px 1px;
+  grid-template-areas: "leftBox rightBox";
+  background-color: $cardColor;
+
+}
+
+.leftBox {
+  grid-area: leftBox;
+  position: relative;
+}
+
+.rightBox {
+  grid-area: rightBox;
+  position: relative;
+}
+
+.cta {
+  height: 421px;
+  background-image: linear-gradient(to bottom, rgba(254, 119, 136, 0.16), rgba(255, 255, 255, 0.07));
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 22px 0px 22px;
+  text-align: center;
+
+  .mryum {
+    width: 100px;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    color: $red;
+    margin: 10px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    color: $bodyColor;
+    font-family: 'SFUIText-Medium', 'Helvetica', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 0;
+  }
+
+  .preRegister {
+    font-family: 'SFUIText-Semibold', 'Helvetica', sans-serif;
+    color: $titleColor;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  input {
+    width: 335px;
+    height: 55px;
+    border-radius: 3px;
+    border: solid 2px $red;
+    padding: 20px;
+    font-family: 'SFUIDisplay', 'Helvetica', sans-serif;;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: $red;
+    transition: .2s ease all;
+  }
+
+  input:focus {
+    outline: none;
+    border: solid 4px $red;
+    padding: 18px;
+  }
+
+  ::placeholder {
+    font-family: 'SFUIDisplay', 'Helvetica', sans-serif;;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: $red;
+  }
+
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 57px;
+  font-family: 'SFUIText', 'Helvetica', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: white;
+  background-color: $red;
+}
