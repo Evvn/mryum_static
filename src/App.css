@@ -1,10 +1,11 @@
 .venue {
   font-family: "SFUIDisplay-Medium", "Helvetica", sans-serif;
+  font-weight: 500;
   font-size: 25px;
   color: #FC4250;
 }
 
-.section {
+.section, .links {
   font-family: "SFUIDisplay-Semibold", "Helvetica", sans-serif;
   font-size: 20px;
   color: #373737;
@@ -36,14 +37,32 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   font-family: sans-serif;
+  background-color: #FC4250;
 }
 
 .App {
-  padding-top: 65px;
+  background-color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.red {
+  background-color: #FC4250;
+}
+
+.lockScroll {
+  overflow: hidden;
 }
 
 header {
@@ -53,32 +72,71 @@ header {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  margin-top: -65px;
+  top: 0;
   background-color: white;
   z-index: 1;
+  padding: 15px;
+  transition: 0.5s ease-in-out all;
 }
 
-.placeholder {
-  width: 56px;
-}
-
-.menu {
-  width: 56px;
-  height: 45px;
-  padding-left: 6px;
-  background-color: #FC4250;
-  border-radius: 24px 0 0 24px;
+.menuOpen {
+  margin-top: 0;
+  transform-origin: top;
   color: white;
-  font-family: "SFUIDisplay-Heavy", "Helvetica", sans-serif;
-  text-transform: uppercase;
-  font-size: 13px;
+  background-color: #FC4250;
+  height: 100vh;
+}
+
+.linksWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.links {
+  color: white;
+  list-style: none;
+  position: fixed;
+  z-index: 1;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  top: 0px;
+  -webkit-animation: fadein 2s;
+}
+.links a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.links a:focus {
+  outline: none;
+}
+.links li {
+  padding: 10px 0;
+  letter-spacing: 0.5px;
+}
+.links li img {
+  height: 75px;
+  margin: 20px 0;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.placeholder {
+  width: 40px;
+}
+
 .section {
-  padding: 15px;
+  padding: 60px 15px 15px 15px;
+  background-color: white;
 }
 
 .title {
@@ -93,7 +151,7 @@ header {
   padding: 21px 14px;
   position: absolute;
   width: 100%;
-  bottom: 0px;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
 }
@@ -118,14 +176,85 @@ header {
   position: relative;
 }
 
+.previewModal {
+  background-color: #FAFAFA;
+  height: 100vh;
+  position: fixed;
+  top: 65px;
+  z-index: 4;
+  left: 100vw;
+  -webkit-animation: slideIn 0.4s ease-in-out forwards;
+}
+.previewModal .previewImage {
+  width: 100vw;
+  height: 100vw;
+}
+.previewModal .previewName {
+  font-family: "SFUIDisplay-Semibold";
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: #494949;
+  padding: 20px;
+}
+.previewModal .previewDescription {
+  font-family: "SFUIText-Regular";
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.5px;
+  color: #6f6f6f;
+  padding: 20px;
+  padding-top: 0;
+}
+.previewModal .previewDetails {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100vw;
+  bottom: 65px;
+  padding: 20px;
+}
+.previewModal .previewPrice {
+  font-family: "SFUIDisplay-Bold";
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  color: #494949;
+}
+.previewModal .previewTags {
+  font-family: "SFUIText-Regular";
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: right;
+  color: #494949;
+}
+
+@-webkit-keyframes slideIn {
+  100% {
+    left: 0;
+  }
+}
 .cta {
-  height: 421px;
-  background-image: linear-gradient(to bottom, rgba(254, 119, 136, 0.16), rgba(255, 255, 255, 0.07));
+  height: 440px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 50px 22px 0px 22px;
+  padding: 50px 22px 0;
   text-align: center;
+  background-color: white;
 }
 .cta .mryum {
   width: 100px;
@@ -153,7 +282,7 @@ header {
 .cta input {
   width: 335px;
   height: 55px;
-  border-radius: 3px;
+  border-radius: 25px;
   border: solid 2px #FC4250;
   padding: 20px;
   font-family: "SFUIDisplay", "Helvetica", sans-serif;
@@ -169,8 +298,6 @@ header {
 }
 .cta input:focus {
   outline: none;
-  border: solid 4px #FC4250;
-  padding: 18px;
 }
 .cta ::placeholder {
   font-family: "SFUIDisplay", "Helvetica", sans-serif;

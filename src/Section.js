@@ -5,9 +5,10 @@ class Section extends React.Component {
   render() {
 
     let name = this.props.name
+    let id = this.props.id
 
     return(
-      <h2 className="section">{ name }</h2>
+      <h2 className="section" id={ id }>{ name }</h2>
     )
   }
 }

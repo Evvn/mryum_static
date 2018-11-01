@@ -8,7 +8,7 @@ class Footer extends React.Component {
       <div>
         <div className="cta">
           <div className="mryum">
-            <img src="/Mr_Yum_logo.svg" alt="Mr Yum"/>
+            <img src="/Mr_Yum_logo_red.svg" alt="Mr Yum"/>
           </div>
 
           <h3>Loving photo menus?</h3>
