@@ -55,6 +55,7 @@ body {
 
 .transparent {
   opacity: 0;
+  transition: 0.1s ease-in-out;
 }
 
 .red {
@@ -65,6 +66,46 @@ body {
   overflow: hidden;
 }
 
+.slideOutLeft {
+  -webkit-transform: translateX(0%);
+  -webkit-animation: slideOutLeft 0.4s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideOutLeft {
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+.slideInLeft {
+  -webkit-transform: translateX(-100%);
+  -webkit-animation: slideInLeft 0.4s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideInLeft {
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+.slideOutRight {
+  -webkit-transform: translateX(0%);
+  -webkit-animation: slideOutRight 0.4s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideOutRight {
+  100% {
+    -webkit-transform: translateX(100%);
+  }
+}
+.slideInRight {
+  -webkit-transform: translateX(100%);
+  -webkit-animation: slideInRight 0.4s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideInRight {
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
 header {
   height: 65px;
   width: 100vw;
@@ -74,7 +115,7 @@ header {
   position: fixed;
   top: 0;
   background-color: white;
-  z-index: 1;
+  z-index: 5;
   padding: 15px;
   transition: 0.5s ease-in-out all;
 }
@@ -85,6 +126,7 @@ header {
   color: white;
   background-color: #FC4250;
   height: 100vh;
+  z-index: 5;
 }
 
 .linksWrapper {
@@ -92,18 +134,19 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 }
 
 .links {
   color: white;
   list-style: none;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   text-align: center;
   margin: 0;
   padding: 0;
   top: 0px;
-  -webkit-animation: fadein 2s;
+  -webkit-animation: fadeIn 2s;
 }
 .links a {
   text-decoration: none;
@@ -122,7 +165,7 @@ header {
   margin: 20px 0;
 }
 
-@-webkit-keyframes fadein {
+@-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -182,8 +225,6 @@ header {
   position: fixed;
   top: 65px;
   z-index: 4;
-  left: 100vw;
-  -webkit-animation: slideIn 0.4s ease-in-out forwards;
 }
 .previewModal .previewImage {
   width: 100vw;
@@ -242,11 +283,6 @@ header {
   color: #494949;
 }
 
-@-webkit-keyframes slideIn {
-  100% {
-    left: 0;
-  }
-}
 .cta {
   height: 440px;
   display: flex;

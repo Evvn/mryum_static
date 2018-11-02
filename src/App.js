@@ -220,7 +220,7 @@ class App extends Component {
       menu.push(
         <Section
           name = { sections[s].name }
-          id = { s }
+          id = {"s" + s }
           key = { s }
         />
       )
@@ -255,9 +255,13 @@ class App extends Component {
           sections = { sections }
         />
 
-        { this.printMenu() }
+        <div className="menu">
+
+          { this.printMenu() }
 
         <Footer />
+
+        </div>
 
       </div>
     );

@@ -63,6 +63,7 @@ body {
 
 .transparent {
   opacity: 0;
+  transition: .1s ease-in-out;
 }
 
 .red {
@@ -71,6 +72,42 @@ body {
 
 .lockScroll {
   overflow: hidden;
+}
+
+.slideOutLeft {
+  -webkit-transform: translateX(0%);
+  -webkit-animation: slideOutLeft .4s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideOutLeft {
+  100%   { -webkit-transform: translateX(-100%) }
+}
+
+.slideInLeft {
+  -webkit-transform: translateX(-100%);
+  -webkit-animation: slideInLeft .4s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideInLeft {
+  100%   { -webkit-transform: translateX(0%) }
+}
+
+.slideOutRight {
+  -webkit-transform: translateX(0%);
+  -webkit-animation: slideOutRight .4s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideOutRight {
+  100%   { -webkit-transform: translateX(100%) }
+}
+
+.slideInRight {
+  -webkit-transform: translateX(100%);
+  -webkit-animation: slideInRight .4s ease-in-out forwards;
+}
+
+@-webkit-keyframes slideInRight {
+  100%   { -webkit-transform: translateX(0%) }
 }
 
 .venue {
@@ -86,7 +123,7 @@ header {
   position: fixed;
   top: 0;
   background-color: white;
-  z-index: 1;
+  z-index: 5;
   padding: 15px;
   transition: .5s ease-in-out all;
   // box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.19);
@@ -98,6 +135,7 @@ header {
   color: white;
   background-color: $red;
   height: 100vh;
+  z-index: 5;
 }
 
 .linksWrapper {
@@ -105,6 +143,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 }
 
 // ul
@@ -113,7 +152,7 @@ header {
   color: white;
   list-style: none;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -138,10 +177,10 @@ header {
       margin: 20px 0;
     }
   }
-  -webkit-animation: fadein 2s;
+  -webkit-animation: fadeIn 2s;
   }
 
-  @-webkit-keyframes fadein {
+  @-webkit-keyframes fadeIn {
   0% { opacity: 0; }
   100%   { opacity: 1; }
   }
@@ -271,13 +310,6 @@ header {
     text-align: right;
     color: $titleColor;
   }
-
-  left: 100vw;
-  -webkit-animation: slideIn .4s ease-in-out forwards;
-}
-
-@-webkit-keyframes slideIn {
-  100%   { left: 0; }
 }
 
 .cta {

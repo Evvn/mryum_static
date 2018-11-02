@@ -15,6 +15,15 @@ class PreviewItem extends React.Component {
 
   }
 
+  componentDidMount() {
+    document.querySelector('.menu').classList.remove('slideInLeft')
+    document.querySelector('.hamburger').classList.add('transparent')
+  }
+
+  componentWillUnmount() {
+    document.querySelector('.hamburger').classList.remove('transparent')
+  }
+
   render() {
 
     let name = this.props.name
@@ -24,7 +33,7 @@ class PreviewItem extends React.Component {
     let style = this.props.style
 
     return(
-      <div className='previewModal'>
+      <div className='previewModal slideInRight'>
 
         <div className="previewImage" style={ style }></div>
 

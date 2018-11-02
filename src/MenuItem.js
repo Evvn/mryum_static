@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDom from 'react-dom'
 import PreviewItem from './PreviewItem.js'
 
 class MenuItem extends React.Component {
@@ -17,20 +18,46 @@ class MenuItem extends React.Component {
   handleClick(e) {
     let id = e.target.id
 
-    this.setState(
-      {
-        previewOpen: !this.state.previewOpen,
-        id: id
-      }, () => {
-        console.log(this.state.id);
-        console.log(this.state.previewOpen);
-        document.body.classList.toggle('lockScroll')
-      })
-  }
+    // if (document.body.querySelector('.previewModal') !== null && document.body.querySelector('.previewModal').className === 'previewModal hack slideOutRight') {
+    //   console.log('HACK');
+    //   document.body.querySelector('.previewModal').className = 'previewModal'
+    //   this.setState(
+    //     {
+    //       previewOpen: !this.state.previewOpen,
+    //       id: id
+    //     })
+    //     return
+    // }
 
-  closePreview(e) {
-
-    console.log('close preview pls');
+    if (document.body.querySelector('.previewModal') !== null) {
+      document.body.querySelector('.previewModal').classList.remove('slideInRight')
+      document.body.querySelector('.previewModal').classList.add('slideOutRight')
+      document.querySelector('.menu').classList.add('slideInLeft')
+      setTimeout(() => {
+        this.setState(
+          {
+            previewOpen: !this.state.previewOpen,
+            id: id
+          }, () => {
+            document.querySelector('.menu').classList.toggle('slideOutLeft')
+            if (this.state.previewOpen) {
+              document.body.classList.add('lockScroll')
+            } else {
+              document.body.classList.remove('lockScroll')
+            }
+          }
+        )
+      }, 400)
+    } else {
+      this.setState(
+        {
+          previewOpen: !this.state.previewOpen,
+          id: id
+        }, () => {
+          document.body.classList.toggle('lockScroll')
+          document.querySelector('.menu').classList.toggle('slideOutLeft')
+        })
+    }
   }
 
   render() {
@@ -75,7 +102,7 @@ class MenuItem extends React.Component {
             </div>
 
             { this.state.previewOpen ?
-              <PreviewItem
+              ReactDom.createPortal(<PreviewItem
                 previewOpen = { this.state.previewOpen }
                 id = { this.state.id }
                 name = { name }
@@ -84,7 +111,7 @@ class MenuItem extends React.Component {
                 image = { image }
                 description = { description }
                 style = { style }
-              />
+              />, document.querySelector('.App'))
             :
               null
             }
@@ -116,7 +143,7 @@ class MenuItem extends React.Component {
             </div>
 
             { this.state.previewOpen ?
-              <PreviewItem
+              ReactDom.createPortal(<PreviewItem
                 previewOpen = { this.state.previewOpen }
                 id = { this.state.id }
                 name = { name }
@@ -125,7 +152,7 @@ class MenuItem extends React.Component {
                 image = { image }
                 description = { description }
                 style = { style }
-              />
+              />, document.querySelector('.App'))
             :
               null
             }

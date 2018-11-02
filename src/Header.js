@@ -11,10 +11,33 @@ class Header extends React.Component {
   }
 
   handleClick(e) {
-    this.setState(state => ({
-      menuOpen: !state.menuOpen
-    }))
-    document.body.classList.toggle('lockScroll')
+    this.setState({
+      menuOpen: !this.state.menuOpen
+    },() => {
+      if (this.state.menuOpen === true) {
+        document.body.classList.add('lockScroll')
+      }
+      // else if (document.body.querySelector('.previewModal') !== null && document.body.querySelector('.previewModal').className === 'previewModal hack slideOutRight') {
+      //   // console.log('HACK');
+      //   document.body.classList.remove('lockScroll')
+      // }
+       else if (document.body.querySelector('.previewModal') !== null) {
+        document.body.classList.add('lockScroll')
+      } else {
+        document.body.classList.remove('lockScroll')
+      }
+    })
+
+    if (e.target.nodeName === 'LI') {
+      if (document.body.querySelector('.previewModal') !== null) {
+        // hack to handle closing modal without state
+        document.body.querySelector('.previewModal').classList.add('hack')
+        document.body.querySelector('.previewModal').classList.remove('slideInRight')
+        document.body.querySelector('.previewModal').classList.add('slideOutRight')
+        document.body.querySelector('.menu').classList.remove('slideOutLeft')
+        document.body.querySelector('.menu').classList.add('slideInLeft')
+      }
+    }
   }
 
   sections() {
@@ -24,7 +47,7 @@ class Header extends React.Component {
     for (let i = 0; i < sections.length; i++) {
       sectionsList.push(
         <AnchorLink
-        href={`#` + i}
+        href={`#s` + i}
         onClick={ this.handleClick }
         key={ i }
         >
