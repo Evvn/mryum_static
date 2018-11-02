@@ -51,6 +51,8 @@ $cardColor: #FAFAFA;
 body {
   font-family: sans-serif;
   background-color: $red;
+  max-width: 768px;
+  margin: 0 auto;
 }
 
 .App {
@@ -117,6 +119,7 @@ body {
 header {
   height: 65px;
   width: 100vw;
+  max-width: 768px;
   display: flex;
   justify-content: space-between;
   align-items: center;
